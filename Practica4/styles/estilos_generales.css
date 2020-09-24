@@ -1,0 +1,133 @@
+/*Importación de la fuente*/
+@import url(//db.onlinewebfonts.com/c/764916fe10c7bd77298ebd8dd957f607?family=BordaW00-Bold);
+
+@font-face {font-family: "BordaW00-Bold"; src: url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.eot"); 
+    src: url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.svg#BordaW00-Bold") format("svg"); }
+
+
+body{
+    /*Degradado*/
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(249,219,188,1) 23%, rgba(251,194,131,1) 70%, rgba(255,255,255,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover ;
+    font-family: "Arial" ;
+}
+
+/*Cabecera*/
+.cabecera{
+    background-color: orange ;
+    border-radius: 15px ;
+    display: grid ;
+    grid-template-columns: 0.10fr 0.90fr;
+}
+
+.logo{
+    background-color: darkorange;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px ;
+    display: flex ;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.img_logo{
+    padding-top: 10%;
+    width: 100% ;
+}
+
+.contenidos_cabecera{
+    display: grid ;
+    grid-template-rows: 60% 40% ;
+}
+
+.titulo{
+    font-size: 160%;
+    padding-left: 2%;
+    color: white;
+    font-family: "BordaW00-Bold" ;
+}
+
+.menu{
+    background-color: grey  ;
+    border-style: solid;
+    border-bottom-right-radius: 15px ;
+    border-top-width: 2px ;
+    border-top-color: black ;
+    float: left ;
+    overflow: hidden;
+}
+
+.opciones{
+    padding-left: 0% ;
+    margin-top: 0%;
+    display: grid;
+    grid-template-columns: 10% 10% 10% ;
+}
+
+.opcion{
+   display: flex ;
+   flex-flow: column;
+   height: 100%;
+   width: 7%;
+   float: left;
+   border-style: solid;
+   border-color: rgb(68, 68, 68);
+   background-color: rgb(102, 101, 101);
+   align-items: center;
+   justify-content: center;
+   margin: auto;
+   font-size: 90%;
+}
+
+.opcion:hover{
+    background-color: rgb(68, 68, 68);
+    font-style: oblique ;
+}
+
+.opcion:visited{
+    color:white ;
+}
+
+.opcion>a{
+    color: white;
+    text-decoration: none ;
+    vertical-align: middle;
+}
+
+.sesiones{
+    float:right;
+    width:20%;
+    color: white;
+}
+
+
+/*Cuerpo*/
+.cuerpo{
+    display: grid;
+    grid-template-columns: 0.4fr 1.6fr;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.auxiliares{
+    background-color: rgba(161, 161, 161, 0.623);
+    border-style: dashed;
+    border-color: black ;
+    overflow: hidden;
+}
+
+/*Footer*/
+.footer{
+    border-radius: 5px ;
+    background-color: rgb(66, 66, 66);
+    color: white ;
+    text-align: center ;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+

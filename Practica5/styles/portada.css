@@ -1,0 +1,46 @@
+.visor_eventos{
+    background-color: rgba(220, 20, 60, 0.411);
+    padding-bottom: 3% ;
+}
+
+.contenedor_eventos{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.fila_eventos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 5px;
+}
+
+.evento{
+    text-align: center ;
+    border-style: double;
+    border-color: white;
+}
+
+.evento>a>p{
+    font-size: 20px;
+}
+
+.evento_img{
+    padding-top: 10px;
+    width: 80%;
+}
+
+.paginacion{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.pagina{
+    border: solid grey;
+    background-color: white;
+    padding: 1%;
+}
+
+.paginaactiva{
+    background-color: tomato;
+    color: white;
+}

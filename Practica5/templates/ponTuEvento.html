@@ -1,0 +1,58 @@
+{%extends "base.html"%}
+
+{%block titulo%}
+    {{parent()}} > Crear evento
+{%endblock%}
+
+{%block estilos%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/formularios.css">
+{%endblock%}
+
+{%block centro%}
+    <div class="formulario">
+        {% for e in errores %}
+            <p style="color: #f00;">{{e}}</p>
+        {% endfor %}
+
+        <h3>Crea un nuevo evento</h3>
+        <form action="ponTuEvento.php" method="post" enctype="multipart/form-data">
+            <h4>Primero, lo básico</h4>
+            <hr>
+            <p>Nombre del evento</p>
+            <input type="text" name="nombre">
+            <p>Fecha (si es de más de un día, el de comienzo)</p>
+            <input type="date" name="fecha">
+            <p>Lugar</p>
+            <input type="text" name="lugar">
+            <p>Háblanos de tu evento</p>
+            <textarea name="info" cols="100" rows="30"></textarea>
+            <h4>Pongamos las redes sociales</h4>
+            <hr>
+            <p>Página de Facebook (solo el nombre, no hay que escribir la página)</p>
+            <input type="text" name="facebook">
+            <p>Cuenta de Twitter (La cuenta, sin @)</p>
+            <input type="text" name="twitter">
+            <h4>Imágenes</h4>
+            <hr>
+            <p>Logo</p>
+            <input type="file" name="logo" />
+            <p>Imagen 1</p>
+            <input type="file" name="imagen1" />
+            <p>¿Algún pie de página para este?</p>
+            <input type="text" name="pie1">
+            <p>Imagen 2</p>
+            <input type="file" name="imagen2" />
+            <p>¿Algún pie de página para este?</p>
+            <input type="text" name="pie2">
+            <p> </p>
+            <h4>Unas cuantas etiquetas</h4>
+            <hr>
+            <input type="text" name="etiquetas">
+            <p> </p><p> </p>
+            <input type="checkbox" name="publicar" id="checkpublicar"> <label for="checkpublicar">Marcando esta casilla, permites que este evento se vea en la web (si no está listo, ¡no pasa nada!, lo podrás hacer en el panel de eventos)</label>
+            <p> </p>
+            <button type="submit">Crear evento</button>
+        </form>
+    </div>
+{%endblock%}

@@ -1,0 +1,45 @@
+{%extends "base.html"%}
+
+{%block titulo%}
+    {{parent()}} > Panel de usuarios
+{%endblock%}
+
+{%block estilos%}
+{{parent()}}
+<link rel="stylesheet" href="styles/tablas.css">
+{%endblock%}
+
+{%block centro%}
+<div class="tablas">
+    {%if error != "Null"%}
+       <p>{{error}}</p>
+    {%endif%}
+    <table class="tabla">
+        <tr>
+            <th>Nick</th>
+            <th>Email</th>
+            <th>Rol</th>
+            <th>Nuevo rol</th>
+        </tr>
+        {%for i in 0..usuarios|length-1%}
+        <tr>
+            <td>{{usuarios[i]['nick']}}</td>
+            <td>{{usuarios[i]['email']}}</td>
+            <td>{{usuarios[i]['rol']}}</td>
+            <td>
+                <form action="panelUsuarios.php" method="post" name="form{{i}}">
+                <input type="text" name="nick" value="{{usuarios[i]['nick']}}" class="oculto">
+                <select name="cambiorol">
+                    <option value="default" selected>--</option>
+                    <option value="Usuario">Usuario</option>
+                    <option value="Moderador">Moderador</option>
+                    <option value="Gestor">Gestor de eventos</option>
+                    <option value="SuperUsuario">SuperUsuario</option>
+                </select>
+                <button type="submit">Aplicar cambios</button>
+                </form>
+            </td>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

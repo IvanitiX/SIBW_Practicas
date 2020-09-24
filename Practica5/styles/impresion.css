@@ -1,0 +1,90 @@
+/*Importación de la fuente*/
+@import url(//db.onlinewebfonts.com/c/764916fe10c7bd77298ebd8dd957f607?family=BordaW00-Bold);
+
+@font-face {font-family: "BordaW00-Bold"; src: url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.eot"); 
+    src: url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.eot?#iefix") format("embedded-opentype"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.woff2") format("woff2"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.woff") format("woff"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.ttf") format("truetype"), 
+    url("//db.onlinewebfonts.com/t/764916fe10c7bd77298ebd8dd957f607.svg#BordaW00-Bold") format("svg"); }
+
+
+body{
+    font-family: "Arial";
+}
+
+.cabecera{
+    width:100%;
+    border-bottom-style: solid;
+    border-bottom-color: grey;
+    padding-bottom: 10%;
+}
+
+.menu{
+    visibility: hidden;
+    display: none;
+}
+
+.titulo{
+    float: left;
+    font-family: "BordaW00-Bold";
+    font-size: 130%;
+}
+
+.logo{
+    float: right;
+    padding-right: 0%;
+}
+.img_logo{
+    width: 25%;
+}
+
+.auxiliares{
+    visibility: hidden;
+    display: none;
+}
+
+.informacion>p{
+    text-align: justify;
+}
+
+.informacion>h1{
+    text-align: center;
+}
+
+.informacion>h2{
+    text-align: center;
+}
+
+.informacion>h3{
+    text-align: center;
+}
+
+.fotos{
+    display: grid;
+    grid-template-columns: 40% 40%;
+}
+
+.fotoevento{
+    padding-left: 10%;
+}
+
+.foto{
+    width: 80%;
+}
+
+.rrss{
+    visibility: hidden;
+    display: none;
+}
+
+.bloque_comentarios{
+    display: none;
+}
+
+/*Footer. Igual que el anterior*/
+.footer{
+    border-top-style: solid;
+    border-top-color: black;
+    text-align: center;
+}

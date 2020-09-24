@@ -1,0 +1,14 @@
+.formulario{
+    background-color: rgba(255, 99, 71, 0.596);
+    color: white;
+    display: block;
+    text-align: center;
+}
+
+.relleno{
+    padding-bottom: 25%;
+}
+
+.error{
+    background-color: rgba(219, 37, 37, 0.637);
+}

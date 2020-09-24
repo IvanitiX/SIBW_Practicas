@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+
+{%block estilos%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/formularios.css">
+    <link rel="stylesheet" href="styles/tablas.css">
+{%endblock%}
+
+{%block centro%}
+<div class="formulario">
+    <p>
+        Editando comentario de {{comentario['Nombre']}}, escrito originalmente el {{comentario['Fecha']}} a las {{comentario['Hora']}}
+    </p>
+    <form action="editarComentario.php" method="post">
+        <input type="text" name="idEv" class="oculto" value="{{comentario['idEv']}}">
+        <input type="text" name="idCom" class="oculto" value="{{comentario['idCom']}}">
+        <p></p>
+        <textarea name="comentario" cols="30" rows="10">{{comentario['Comentario']}}</textarea>
+        <p></p>
+        <button type="submit">Editar comentario</button>
+    </form>
+</div>
+{%endblock%}

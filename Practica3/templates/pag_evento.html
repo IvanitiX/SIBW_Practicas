@@ -1,0 +1,90 @@
+{%extends "base.html"%}
+
+{%block estilos%}
+    {%if imprimir == 0%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/pag_evento.css">
+    <link rel="stylesheet" href="styles/comentarios.css">
+    {%elseif imprimir == 1%}
+    <link rel="stylesheet" href="styles/impresion.css">
+    {%endif%}
+{%endblock%}
+
+{%block scripts%}
+    <script type="text/javascript" src="js/comentarios.js"></script>
+{%endblock%}
+
+{%block titulo%}
+    {{parent()}} > {{evento['nombre']}}
+{%endblock%}
+
+{%block centro%}
+<div class="contenedor_info">
+    <div class="informacion">
+       <h1>{{evento['nombre']}}</h1>
+       <h2>{{evento['lugar']}}</h2>
+       <h3>{{evento['fecha']}}</h3>
+       <p>{{evento['informacion']|raw}}</p>
+    </div>
+
+    <div class="fotos">
+        <div class="fotoevento">
+           <img class="foto" src="{{evento['ruta_img1']}}">
+           <p>{{evento['pie_img1']}}</p>
+        </div>
+        <div class="fotoevento">
+           <img class="foto" src="{{evento['ruta_img2']}}">
+           <p>{{evento['pie_img2']}}</p>
+        </div>
+        <div class="rrss">
+            <div class="pic">
+               <a href="https://twitter.com/{{evento['twitter']}}"><img src="img/twitter.png"/></a>
+            </div>
+            <div class="pic">
+               <a href="https://facebook.com/{{evento['facebook']}}"><img src="img/facebook.png"/></a>
+            </div>
+            <div class="pic">
+               <a href="evento.php?imprimir=1&evento={{evento['id']}}"><img src="img/imprimir.png"></a>
+            </div>
+        </div>
+        <div class="hueco">
+        </div>
+    </div>             
+</div>
+
+<div class="bloque_comentarios">
+    <div class="boton">
+       <a class="comentarios" href="#" onclick="mostrar()"><img src="img/comentarios.png"/></a> 
+    </div>
+  
+
+<div id="zona_comentarios">
+    <div id="palabrasbans">{%for i in 0..bans|length-1%}{%if i < bans|length-1%}{{bans[i]}}-{%else%}{{bans[i]}}{%endif%}{%endfor%}</div>
+    <div class="cabecera_comentarios">
+        <h2>Comentarios:</h2>
+    </div>
+    <div id="comments">
+        {%if comentarios|length > 0 %}
+        {% for i in 0..comentarios|length-1 %}
+       <div class="comment">
+           <h3>{{comentarios[i]['nombre']}} , {{comentarios[i]['fecha']}} {{comentarios[i]['hora']}} $></h3>
+           <p>{{comentarios[i]['comentario']}}</p>
+       </div>
+       {%endfor%}
+       {%endif%}
+       
+    </div>
+   <form id="formulario">
+       <h3>¡Postea tu comentario!</h3>
+       <p>Nombre</p>
+       <input type="text" name="Nombre" id="nombre">
+       <p>Correo</p>
+       <input type="email" name="Correo" id="mail">
+       <p>Tu comentario:</p>
+       <input type="textarea" name="Texto" id="texto" oninput="palabras_baneadas()">
+       <p></p>
+       <input type="button" value="Enviar" onclick="validar_comentario()">
+   </form>
+</div>
+</div>
+{%endblock%}

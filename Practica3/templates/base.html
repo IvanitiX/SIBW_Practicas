@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible">
+    {%block estilos%}
+    <link rel="stylesheet" href="styles/estilos_generales.css">
+    <!--Añadir en el bloque cualquier CSS-->
+    {%endblock%}
+    {%block scripts%}{%endblock%}
+    <!--Añadir en el bloque scripts de JS-->
+    
+    <!--Fuente de letra no estándar-->
+    <link href="//db.onlinewebfonts.com/c/764916fe10c7bd77298ebd8dd957f607?family=BordaW00-Bold" rel="stylesheet" type="text/css"/> 
+    <title>{%block titulo%}GameAdvisor{%endblock%}</title>
+</head>
+<body>
+    {%block cabecera%}
+    <nav class="cabecera">
+        <div class="logo">
+            <img src="img/logo.png" class ="img_logo"/>
+        </div>
+        <div class="contenidos_cabecera">
+            <div class="titulo">
+                <h1>GameAdvisor</h1>
+            </div>
+            <div class="menu">
+                <a href="index.php" class="opcion">Inicio</a>
+                <a href="#" class="opcion">Pon tu evento</a>
+                <a href="#" class="opcion">Otros</a>
+            </div>
+        </div>
+    </nav>
+    {%endblock%}
+
+    <div class="cuerpo">
+        {%block auxiliares%}
+        <div class="auxiliares">
+           <h3>Enlaces relacionados:</h3>
+           <ul>
+             <li><a href="https://lvp.global">Liga de Videojuegos Profesional de España</a></li>
+             <li><a href="https://play.eslgaming.com/spain">Electronic Sports League</a></li>
+             <li><a href="https://dreamhack.es">DreamHack</a></li>
+           </ul>
+        </div>
+        {%endblock%}
+
+        {%block centro%}
+            <!--Contenido del centro. Puede ser la rejilla de eventos o la info del evento-->
+        {%endblock%}
+
+    </div>
+
+    {%block footer%}
+    <div class="footer">
+        <p class="texto_footer">GameAdvisor, tu página de eventos y torneos para gamers</p>
+        <p class="copyright">© 2020 Iván V.R (IvanitiX) </p>
+    </div>
+    {%endblock%}
+
+</body>
+</html>

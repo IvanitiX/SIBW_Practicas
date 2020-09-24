@@ -1,0 +1,110 @@
+{%extends "base.html"%}
+
+{%block estilos%}
+    {%if imprimir == 0%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/pag_evento.css">
+    <link rel="stylesheet" href="styles/comentarios.css">
+    <link rel="stylesheet" href="styles/tablas.css">
+    {%elseif imprimir == 1%}
+    <link rel="stylesheet" href="styles/impresion.css">
+    {%endif%}
+{%endblock%}
+
+{%block scripts%}
+    {{parent()}}
+    <script type="text/javascript" src="js/comentarios.js"></script>
+{%endblock%}
+
+{%block titulo%}
+    {{parent()}} > {{evento['nombre']}}
+{%endblock%}
+
+{%block centro%}
+<div class="contenedor_info">
+    <div class="informacion">
+       <h1>{{evento['nombre']}}</h1>
+       <h2>{{evento['lugar']}}</h2>
+       <h3>{{evento['fecha']}}</h3>
+       <p>{{evento['informacion']|raw}}</p>
+    </div>
+
+    <div class="fotos">
+        <div class="fotoevento">
+           <img class="foto" src="{{evento['ruta_img1']}}">
+           <p>{{evento['pie_img1']}}</p>
+        </div>
+        <div class="fotoevento">
+           <img class="foto" src="{{evento['ruta_img2']}}">
+           <p>{{evento['pie_img2']}}</p>
+        </div>
+        <div class="rrss">
+            <div class="pic">
+               <a href="https://twitter.com/{{evento['twitter']}}"><img src="img/twitter.png"/></a>
+            </div>
+            <div class="pic">
+               <a href="https://facebook.com/{{evento['facebook']}}"><img src="img/facebook.png"/></a>
+            </div>
+            <div class="pic">
+               <a href="evento.php?imprimir=1&evento={{evento['id']}}"><img src="img/imprimir.png"></a>
+            </div>
+        </div>
+        <div class="etiquetas">
+            <h3>Etiquetas</h3>
+            <p>{{etiquetas}}</p>
+        </div>
+        <div class="hueco">
+        </div>
+    </div>             
+</div>
+
+<div class="bloque_comentarios">
+    <div class="boton">
+       <a class="comentarios" href="#" onclick="mostrar()"><img src="img/comentarios.png"/></a> 
+    </div>
+  
+
+<div id="zona_comentarios">
+    <div id="palabrasbans">{%for i in 0..bans|length-1%}{%if i < bans|length-1%}{{bans[i]}}-{%else%}{{bans[i]}}{%endif%}{%endfor%}</div>
+    <div class="cabecera_comentarios">
+        <h2>Comentarios:</h2>
+    </div>
+    <div id="comments">
+        {%if comentarios|length > 0 %}
+        {% for i in 0..comentarios|length-1 %}
+       <div class="comment">
+           <h3>{{comentarios[i]['nombre']}} , {{comentarios[i]['fecha']}} {{comentarios[i]['hora']}} $></h3>
+           <p>{{comentarios[i]['comentario']}}</p>
+           {%if user.rol=="Moderador"%}
+                <a href="editarComentario.php?evento={{evento['id']}}&comm={{comentarios[i]['id_com']}}">Editar</a>
+                <form action="borrar.php" method="post" onsubmit="return confirmacion()">
+                    <input type="text" name="registro" class="oculto" value="Comentarios">
+                    <input type="text" name="idEv" class="oculto" value="{{evento['id']}}">
+                    <input type="text" name="idCom" class="oculto" value="{{comentarios[i]['id_com']}}">
+                    <button type="submit">Borrar</button>
+                </form>
+           {%endif%}
+       </div>
+       {%endfor%}
+       {%endif%}
+       
+    </div>
+    {%if user != "Empty"%}
+   <form id="formulario" method="POST" action="anadirComentario.php">
+       <h3>¡Postea tu comentario!</h3>
+       <input type="text" name="IdEvento" id="idEv" value="{{evento['id']}}" class="oculto">
+       <input type="text" name="IdComentario" id="idCom" value="{{comentarios|length+1}}" class="oculto">
+       <p>Nombre : <strong id="nombre">{{user.nick}}</strong></p>
+       <p>Tu comentario:</p>
+       <input type="textarea" name="Texto" id="texto" oninput="palabras_baneadas()">
+       <p></p>
+       <button type="submit">Enviar</button>
+   </form>
+   {%else%}
+    <div>
+        Necesitas registrarte o iniciar sesión para poder comentar.
+    </div>
+   {%endif%}
+</div>
+</div>
+{%endblock%}

@@ -1,0 +1,27 @@
+.contenedor_eventos{
+    background-color: rgba(220, 20, 60, 0.411);
+    display: grid;
+    grid-template-rows: 33% 33% 33%;
+}
+
+.fila_eventos{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    padding-left: 5px;
+}
+
+.evento{
+    text-align: center ;
+    border-style: double;
+    border-color: white;
+}
+
+.evento>a>p{
+    font-size: 20px;
+}
+
+.evento_img{
+    padding-top: 10px;
+    height: 80%;
+    width: 80%;
+}

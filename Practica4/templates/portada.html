@@ -1,0 +1,53 @@
+{%extends "base.html"%}
+
+{%block estilos%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/portada.css">
+{%endblock%}
+
+{%block scripts%}
+<script type="text/javascript" src="js/paginacion.js"></script>
+{%endblock%}
+
+{%block titulo%}
+    {{parent()}} > Inicio
+{%endblock%}
+
+{%block centro%}
+<div class="visor_eventos">
+{%for k in 0..rejillas %}
+
+{%if k == 0 %}
+<div class="contenedor_eventos" id="{{k}}" style="display: grid;">
+{%else%}
+<div class="contenedor_eventos" id="{{k}}" style="display: none;">
+{%endif%}
+
+    {%for i in 0..2%}
+        <div class="fila_eventos">
+        {%for j in 0..2%}
+            <div class="evento">
+                <a href="evento.php?evento={{eventos[9*k+3*i+j]['Id']}}">
+                    <img class="evento_img" src="{{eventos[9*k+3*i+j]['Ruta_Logo']}}">
+                    <p>{{eventos[9*k+3*i+j]['Nombre']}}</p>
+                </a>
+            </div>
+        {%endfor%}
+        </div>
+    {%endfor%}
+</div>
+{%endfor%}
+
+    <div class="paginacion">
+        {%for i in 0..rejillas %}
+            {%if i == 0%}
+            <a href="#" class="pagina paginaactiva" id="numero{{i+1}}" onclick="cambio_pagina(({{i|json_encode()|raw}}),{{rejillas|json_encode()|raw}})">{{i+1}}</a>
+            {%else%}
+            <a href="#" class="pagina" id="numero{{i+1}}" onclick="cambio_pagina(({{i|json_encode()|raw}}),{{rejillas|json_encode()|raw}})">{{i+1}}</a>
+            {%endif%}
+        {%endfor%}
+      </div>
+
+</div>
+      
+{%endblock%}

@@ -1,0 +1,50 @@
+{%extends "base.html"%}
+
+{%block titulo%}
+    {{parent()}} > Panel de eventos
+{%endblock%}
+
+{%block estilos%}
+{{parent()}}
+<link rel="stylesheet" href="styles/tablas.css">
+{%endblock%}
+
+{%block scripts%}
+    <script src="js/eliminacion_registros.js"></script>
+{%endblock%}
+
+{%block centro%}
+<div class="tablas">
+    <p>
+        ¿Quieres añadir un evento?
+        <a href="ponTuEvento.php">¡Crea el tuyo!</a>
+    </p>
+    <table class="tabla">
+        <tr>
+            <th>ID</th>
+            <th>Icono</th>
+            <th>Nombre</th>
+            <th>Lugar</th>
+            <th>Fecha</th>
+            <th>Operaciones</th>
+        </tr>
+        {%for i in 0..eventos|length-1%}
+        <tr>
+            <td>{{eventos[i]['Id']}}</td>
+            <td><img src="{{eventos[i]['Ruta_Logo']}}" width="10%"></td>
+            <td>{{eventos[i]['Nombre']}}</td>
+            <td>{{eventos[i]['Lugar']}}</td>
+            <td>{{eventos[i]['Fecha']}}</td>
+            <td>
+                <a href="editarEvento.php?evento={{eventos[i]['Id']}}">Editar</a>
+                <form action="borrar.php" method="post" onsubmit="return confirmacion()">
+                    <input type="text" name="registro" class="oculto" value="Eventos">
+                    <input type="text" name="idEv" class="oculto" value="{{eventos[i]['Id']}}">
+                    <button type="submit">Borrar</button>
+                </form>
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}

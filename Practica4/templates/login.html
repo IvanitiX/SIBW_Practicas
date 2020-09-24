@@ -1,0 +1,28 @@
+{%extends "base.html"%}
+
+{%block titulo%}
+    {{parent()}} > Iniciar sesión
+{%endblock%}
+
+{%block estilos%}
+    {{parent()}}
+    <link rel="stylesheet" href="styles/formularios.css">
+{%endblock%}
+
+{%block centro%}
+<div class="formulario">
+    {%if error == 1%}
+    <div class="error">
+        <p>¡Te has equivocado con el Usuario o con la Contraseña! ¡Inténtalo de nuevo!</p>
+    </div>
+    {%endif%}
+    
+    <form action="login.php" method="post">
+        <p>Usuario: <input type="text" name="nick" class="inputs"></p>
+        <p>Contraseña: <input type="password" name="pass" class="inputs"></p>
+        <p><input type="submit" value="Inicia sesión"></p>
+    </form>
+    
+    <div class="relleno"></div>
+    </div>
+{%endblock%}

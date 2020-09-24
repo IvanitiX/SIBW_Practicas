@@ -1,0 +1,39 @@
+.contenedor_info{
+    padding-left: 10px;
+    background-color: rgba(205, 134, 63, 0.575);
+    display: grid;
+    grid-template-columns: 1.1fr 0.4fr;
+}
+
+.fotos{
+    display: grid;
+    grid-template-rows: 0.1fr 0.1fr 0.1fr;
+    padding-left: 10px;
+}
+
+.fotoevento{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.foto{
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.rrss{
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    resize: vertical;
+    padding-top: 5px;
+}
+
+.pic{
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.pic>img{
+    width: 80%;
+    height:80%;
+}
